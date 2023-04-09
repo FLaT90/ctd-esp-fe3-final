@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../components/Card';
+import Card from '../Components/Card';
 
 
 const Home = () => {
@@ -17,7 +17,10 @@ const Home = () => {
   }, []);
 
   const addToFavs = (dentist) => {
-    setFavs([...favs, dentist]);
+    const existingDentist = favs.find((fav) => fav.id === dentist.id);
+    if (!existingDentist) {
+      setFavs([...favs, dentist]);
+    }
   };
 
   return (
